@@ -32,12 +32,7 @@
   margin-left: 10px;
 }
 .footer-theme-info {
-  float: right;
-}
-@media (max-width: $screen-sm) {
-  .footer-theme-info {
-    float: none;
-  }
+  text-align: center;
 }
 .footer-logo {
   position: absolute;
