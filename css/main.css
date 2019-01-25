@@ -117,7 +117,8 @@ a:hover {
   padding-top: 12px;
   padding-bottom: 12px;
   color: rgba(255,255,255,0.75);
-  background-color: #24292e;
+  background-color: #0366d6;
+  box-shadow: 0 1px 3px rgba(26,26,26,0.1);
 }
 .navbar-logo {
   color: #fff !important;
@@ -168,7 +169,6 @@ a:hover {
   width: 1%;
   padding: 0 8px;
   color: rgba(255,255,255,0.75);
-  border-right: 1px solid #282e34;
   font-size: inherit;
   white-space: nowrap;
   vertical-align: middle;
@@ -836,17 +836,7 @@ pre {
 .blog-intro .social-media-item {
   float: left;
   margin-right: 5px;
-  font-size: 25px;
-  width: 35px;
-  height: 35px;
-  background: #f0f0f0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  text-align: center;
-}
-.blog-intro .social-media-item a {
-  line-height: 35px;
+  font-size: 30px;
 }
 .blog-intro .social-media-item .fa-github {
   color: #24292e;
