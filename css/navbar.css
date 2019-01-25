@@ -13,9 +13,9 @@
 }
 .navbar-logo {
   color: #0084ff !important;
-  font-size: 37.32px;
+  font-size: 32px;
   float: left;
-  margin: -13px 15px -15px -2px;
+  margin: -15px 15px -15px -2px;
   white-space: nowrap;
 }
 @media (max-width: $screen-sm) {
