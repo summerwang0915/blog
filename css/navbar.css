@@ -5,11 +5,14 @@
   padding-top: 12px;
   padding-bottom: 12px;
   color: rgba(255,255,255,0.75);
-  background-color: #0366d6;
+  background-color: #fff;
   box-shadow: 0 1px 3px rgba(26,26,26,0.1);
 }
+.navbar-rss {
+  color: #ff9607 !important;
+}
 .navbar-logo {
-  color: $white !important;
+  color: #0084ff !important;
   font-size: 37.32px;
   float: left;
   margin: -13px 15px -15px -2px;
@@ -33,10 +36,10 @@
   padding: 5px 8px;
   font-weight: 600;
   line-height: 20px;
-  color: rgba(255,255,255,0.75);
+  color: #0084ff;
 }
 .navbar-nav a:hover {
-  color: $white;
+  color: #0084ff;
   text-decoration: none;
 }
 .navbar-search {
@@ -46,15 +49,15 @@
 }
 .navbar-search-form {
   display: table;
-  color: #fff;
-  background-color: rgba(255,255,255,0.125);
+  color: #8590a6;
+  background-color: #f6f6f6;
   border-radius: 3px;
 }
 .navbar-search label {
   display: table-cell;
   width: 1%;
   padding: 0 8px;
-  color: rgba(255,255,255,0.75);
+  color: #8590a6;
   font-size: inherit;
   white-space: nowrap;
   vertical-align: middle;
@@ -85,7 +88,7 @@
   margin: 0 0 -10px 0;
 }
 .user-nav a:hover {
-  color: $white;
+  color: #0084ff;
 }
 .user-nav li:last-child {
   margin-right: -10px;
@@ -109,7 +112,7 @@
   z-index: 2;
   width: 14px;
   height: 14px;
-  color: $white;
+  color: #0084ff;
   text-align: center;
   background-image: linear-gradient(#54a3ff, #006eed);
   background-clip: padding-box;
