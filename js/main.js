@@ -4,3 +4,4 @@ new Vue({
 		moment: moment
 	}
 });
+
