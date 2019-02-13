@@ -208,17 +208,38 @@ function renderResultList(dataList) {
     <li class="">
       <a href="/">Overview</a></li>
     <li class="selected">
-      <a href="/archives">Posts <span class="counter">1</span></a>
+      <a href="/archives">Posts <span class="counter">2</span></a>
     </li>
     <li class="">
-      <a href="/categories">Categories <span class="counter">0</span></a></li>
+      <a href="/categories">Categories <span class="counter">1</span></a></li>
     <li class="">
-      <a href="/tags">Tags <span class="counter">0</span></a></li>
+      <a href="/tags">Tags <span class="counter">1</span></a></li>
   </ul>
 </nav>
 
     <div class="body-secondary">
       <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2019/02/13/test/">test</a></h2>
+          <p>
+            ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/test/">test</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/test/"><i class="fa fa-folder-open"></i> test</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1550051014000).fromNow()}}</span>
+          </div>
+        </li>
         
         <li class="archive-list-item">
           <h2><a href="/2019/01/25/hello-world/">Hello World</a></h2>
