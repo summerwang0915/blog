@@ -15,7 +15,7 @@
   color: #ff9607 !important;
   font-size: 24px;
   float: left;
-  margin: -8px 15px -15px -2px;
+  margin: -5px 15px -15px -2px;
   white-space: nowrap;
 }
 @media (max-width: $screen-sm) {
