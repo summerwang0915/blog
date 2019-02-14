@@ -202,7 +202,7 @@ function handleSearch(value) {
     
     // 渲染结果列表
     function renderResultList(dataList) {
-      var templateHtml = '<ul class="listing">';
+      var templateHtml = '<ul class="listing"><h3>搜索结果</h3><div class="listing-count">本次共搜索到 ' + dataList.length + ' 条结果</div>';
       if (dataList.length) {
         dataList.forEach(function(item) {
           templateHtml +=

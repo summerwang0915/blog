@@ -1083,18 +1083,18 @@ pre {
   font-size: 12px;
 }
 .tag-list {
-  padding: 4px 0;
+  padding: 20px 0;
   list-style: none;
   margin: 0;
 }
 .tag-list-item {
   float: left;
   margin: 0 0.5em 0.5em 0;
-  padding: 0.3em 0.9em;
+  padding: 0.4em 1.2em;
   background: #f1f8ff;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
   color: #0084ff;
   font-size: 12px;
 }
@@ -1162,13 +1162,27 @@ pre {
   padding: 0;
   list-style: none;
 }
+.search-content .listing .listing-count {
+  color: #bfbfbf;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
 .search-content .listing .listing-item {
   display: flex;
   justify-content: space-between;
-  color: #8590a6;
-  line-height: 32px;
+  color: #586069;
+  line-height: 48px;
+  border-bottom: 1px solid #f6f6f6;
 }
 .search-content .listing .listing-item a {
-  color: #8590a6;
+  color: #586069;
+  text-decoration: none;
+}
+.category-list {
+  padding: 0 20px;
+  list-style: none;
+}
+.category-list .category-list-item a {
+  color: #586069;
   text-decoration: none;
 }
