@@ -1158,3 +1158,17 @@ pre {
     padding: 0 15px;
   }
 }
+.search-content .listing {
+  padding: 0;
+  list-style: none;
+}
+.search-content .listing .listing-item {
+  display: flex;
+  justify-content: space-between;
+  color: #8590a6;
+  line-height: 32px;
+}
+.search-content .listing .listing-item a {
+  color: #8590a6;
+  text-decoration: none;
+}
