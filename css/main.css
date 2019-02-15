@@ -24,9 +24,6 @@ a:visited {
   color: #0084ff;
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
-}
 .float-right {
   float: right !important;
 }
@@ -671,7 +668,7 @@ pre {
 .calendar-graph-container {
   margin-bottom: 32px;
   padding: 8px 0;
-  border: 1px solid #d1d5da;
+  box-shadow: 0 0 3px 0 rgba(26,26,26,0.1);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -707,6 +704,10 @@ pre {
 .contribution-list ul {
   list-style: none;
   padding: 0;
+}
+.contribution-list ul li {
+  display: flex;
+  justify-content: space-between;
 }
 .svg-tip {
   width: 200px;
@@ -760,7 +761,7 @@ pre {
     padding-left: 16px;
     padding-right: 16px;
     background-color: #fafbfc;
-    border-bottom: 1px solid #e1e4e8;
+    border-bottom: 1px solid #f6f6f6;
   }
 }
 .blog-intro .avatar {
@@ -898,7 +899,7 @@ pre {
   }
 }
 .blog-detail-nav {
-  border-bottom: 1px solid #d1d5da;
+  border-bottom: 1px solid #f6f6f6;
 }
 .blog-detail-nav ul {
   list-style: none;
@@ -964,14 +965,14 @@ pre {
 @media (max-width: 414px) {
   .recent-post {
     width: 100%;
-    border: 1px solid #d1d5da;
+    border: 1px solid #f6f6f6;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
   }
 }
 .recent-post-item {
-  border: 1px solid #d1d5da;
+  box-shadow: 0 0 3px 0 rgba(26,26,26,0.1);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -990,7 +991,7 @@ pre {
     height: auto;
     margin: 0;
     padding: 14px;
-    border-top: 1px solid #d1d5da;
+    border-top: 1px solid #f6f6f6;
     padding: 0;
   }
   .recent-post-item:first-child {
@@ -1066,7 +1067,7 @@ pre {
 }
 .archive-list-item {
   padding: 24px 0;
-  border-bottom: 1px solid #e1e4e8;
+  border-bottom: 1px solid #f6f6f6;
 }
 .archive-list-item h2 {
   margin: 0;

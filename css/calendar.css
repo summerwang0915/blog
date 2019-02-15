@@ -18,7 +18,7 @@
 .calendar-graph-container {
   margin-bottom: 32px;
   padding: 8px 0;
-  border: 1px solid #d1d5da;
+  box-shadow: 0 0 3px 0 rgba(26,26,26,0.1);
   border-radius: 3px;
 }
 .calendar .month {
@@ -52,6 +52,10 @@
 .contribution-list ul {
   list-style: none;
   padding: 0;
+}
+.contribution-list ul li {
+  display: flex;
+  justify-content: space-between;
 }
 .svg-tip {
   width: 200px;
