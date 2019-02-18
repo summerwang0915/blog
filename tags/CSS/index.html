@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    categories | 橘大人的 Blog
+    橘大人的 Blog
   </title>
   <meta name="description" content="写代码要跟写书法一样写一辈子，喵～">
   
@@ -80,7 +80,9 @@ function handleSearch(value) {
 </script>
 
 <div class="main-container">
-  <div class="container-lg">
+  
+
+<div class="container-lg">
   
 
 <div class="blog-intro">
@@ -146,71 +148,36 @@ function handleSearch(value) {
 
   <div class="blog-detail">
     <div class="body-secondary">
-
-      
-      
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/test/">test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-前端开发/">web 前端开发</a><span class="category-list-count">1</span></li></ul>
-      
-      
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2019/02/18/pre-标签文字换行解决方案/">pre 标签文字换行解决方案</a></h2>
+          <p>
+             大家经常遇到这种情况，当一行文字里包含英文字母或数字时会出现不换行局面，一般用 word-wrap:break-word 强制护航就能解决该问题。 
+ 但有时候后端返回的数据包含 &amp;lt;pre&gt; 标签的时候，就不能用 word-wrap:break-word换行了。 
+ 简单的说就是 &amp;lt;p...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/CSS/">CSS</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/web-前端开发/"><i class="fa fa-folder-open"></i> web 前端开发</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1550457918000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
     </div>
   </div>
 </div>
 
-<script>
-    var url = window.location.href;
-    
-    // 判断是否是搜索页面
-    if (url.indexOf('search') > -1) {
-      var searchVal = getKeyword();
-      var resultList = [];
-      if (!searchVal) { window.location.href = '/'; }
-      $.get('../content.json', function(data) {
-        data.forEach(function(item) {
-          if (
-            item.title.indexOf(searchVal) > -1 ||
-            item.text.indexOf(searchVal) > -1
-          ) {
-            resultList.push(item);
-          }
-        });
-        renderResultList(resultList);
-      });
-    }
-    
-    // 判断是否存在搜索关键字
-    function getKeyword() {
-      var searchVal = decodeURIComponent(url.split('w=')[1]);
-      if (url.indexOf('w=') < 0) { return null; }
-      if (searchVal === '') { return null; }
-      return searchVal;
-    }
-    
-    // 渲染结果列表
-    function renderResultList(dataList) {
-      var templateHtml = '<ul class="listing"><h3>搜索结果</h3><div class="listing-count">本次共搜索到 ' + dataList.length + ' 条结果</div>';
-      if (dataList.length) {
-        dataList.forEach(function(item) {
-          templateHtml +=
-            '<li class="listing-item">' +
-              '<a href="/'+ item.path +'" title="'+ item.title +'">' +
-                item.title +
-              '</a>' +
-              '<div class="post-time">' +
-                '<span class="date">' +
-                  item.date +
-                '</span>' +
-              '</div>' +
-            '</li>';
-        });
-      } else {
-        templateHtml += '<p>返回首页重新搜索，<a href="/">点我</a></p>';
-      }
-      templateHtml += '</ul>';
-      $('.post-information > .meta > .info').append('本次共搜索到 ' + dataList.length + ' 条结果');
-      $('.search-content').html(templateHtml);
-    }
-    
-    </script>
 </div>
 
 <div class="footer-wrapper container">

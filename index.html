@@ -155,6 +155,26 @@ function handleSearch(value) {
           <div class="clearfix">
             <h5 class="post-title text-ellipsis">
               <i class="fa fa-bars"></i>
+              <a href="/2019/02/18/pre-标签文字换行解决方案/">pre 标签文字换行解决方案</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+               大家经常遇到这种情况，当一行文字里包含英文字母或数字时会出现不换行局面，一般用 word-wrap
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <a class="category-link" href="/categories/web-前端开发/"><i class="fa fa-folder-open"></i> web 前端开发</a>
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 1 </span>
+            </p>
+          </div>
+        </li>
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
               <a href="/2019/02/14/test2/">test2</a>
             </h5>
             <p class="post-description text-ellipsis desktop-only">
@@ -276,7 +296,7 @@ function handleSearch(value) {
 
 
 <script>
-  var posts = [{"date":"2019-01-25","title":"Hello World","url":"https://ju-da-ren.wang/2019/01/25/hello-world/"},{"date":"2019-02-13","title":"test","url":"https://ju-da-ren.wang/2019/02/13/test/"},{"date":"2019-02-14","title":"test2","url":"https://ju-da-ren.wang/2019/02/14/test2/"}];
+  var posts = [{"date":"2019-01-25","title":"Hello World","url":"https://ju-da-ren.wang/2019/01/25/hello-world/"},{"date":"2019-02-13","title":"test","url":"https://ju-da-ren.wang/2019/02/13/test/"},{"date":"2019-02-14","title":"test2","url":"https://ju-da-ren.wang/2019/02/14/test2/"},{"date":"2019-02-18","title":"pre 标签文字换行解决方案","url":"https://ju-da-ren.wang/2019/02/18/pre-标签文字换行解决方案/"}];
   var today = moment().format('YYYY-MM-DD');
   var oneYearAgo = moment(today).subtract(1, 'years');
   posts = posts.filter(function(post) {

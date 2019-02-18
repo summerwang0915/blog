@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>pre 标签文字换行解决方案</title>
+      <link href="/2019/02/18/pre-%E6%A0%87%E7%AD%BE%E6%96%87%E5%AD%97%E6%8D%A2%E8%A1%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+      <url>/2019/02/18/pre-%E6%A0%87%E7%AD%BE%E6%96%87%E5%AD%97%E6%8D%A2%E8%A1%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      
+        <content type="html"><![CDATA[<p>大家经常遇到这种情况，当一行文字里包含英文字母或数字时会出现不换行局面，一般用 word-wrap:break-word 强制护航就能解决该问题。</p><p>但有时候后端返回的数据包含 &lt;pre> 标签的时候，就不能用 word-wrap:break-word换行了。</p><p>简单的说就是 &lt;pre> 标签文字无法用 word-wrap:break-word 换行的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  pre &#123;</span><br><span class="line">    display: block; </span><br><span class="line">    width: 200px; </span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: #ddd;</span><br><span class="line">    word-break: break-word;</span><br><span class="line">  &#125;  </span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;pre&gt;hexohexohexohexohexohexohexohexohexohexohexohexohexohexohexo&lt;/pre&gt;</span><br></pre></td></tr></table></figure><p><img src="../images/pre.png" alt="pre" title="pre"></p><p>解决方法是用white-space:pre-line或者white-space:pre-wrap就可以轻松解决</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web 前端开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>test2</title>
       <link href="/2019/02/14/test2/"/>
       <url>/2019/02/14/test2/</url>
