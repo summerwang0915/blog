@@ -1,19 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[pre 标签文字换行解决方案]]></title>
-    <url>%2F2019%2F02%2F18%2Fpre-%E6%A0%87%E7%AD%BE%E6%96%87%E5%AD%97%E6%8D%A2%E8%A1%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%2F</url>
-    <content type="text"><![CDATA[大家经常遇到这种情况，当一行文字里包含英文字母或数字时会出现不换行局面，一般用 word-wrap:break-word 强制换行就能解决该问题。 但有时候后端返回的数据包含 &lt;pre> 标签的时候，用 word-wrap:break-word 换行是没有效果的。 简单的说就是 &lt;pre> 标签文字无法用 word-wrap:break-word 换行的。 1234567891011&lt;style&gt; pre &#123; display: block; width: 200px; height: 100px; background-color: #ddd; word-wrap: break-word; &#125; &lt;/style&gt;&lt;pre&gt;hexohexohexohexohexohexohexohexohexohexohexohexohexohexohexo&lt;/pre&gt; 解决方法：用 white-space:pre-line 或者 white-space:pre-wrap 就可以轻松解决。]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>pre 标签文字换行解决方案</title>
+      <link href="/2019/02/18/pre-%E6%A0%87%E7%AD%BE%E6%96%87%E5%AD%97%E6%8D%A2%E8%A1%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+      <url>/2019/02/18/pre-%E6%A0%87%E7%AD%BE%E6%96%87%E5%AD%97%E6%8D%A2%E8%A1%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      
+        <content type="html"><![CDATA[<p>大家经常遇到这种情况，当一行文字里包含英文字母或数字时会出现不换行局面，一般用 word-wrap:break-word 强制换行就能解决该问题。</p><p>但有时候后端返回的数据包含 &lt;pre> 标签的时候，用 word-wrap:break-word 换行是没有效果的。</p><p>简单的说就是 &lt;pre> 标签文字无法用 word-wrap:break-word 换行的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  pre &#123;</span><br><span class="line">    display: block; </span><br><span class="line">    width: 200px; </span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: #ddd;</span><br><span class="line">    word-wrap: break-word;</span><br><span class="line">  &#125;  </span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;pre&gt;hexohexohexohexohexohexohexohexohexohexohexohexohexohexohexo&lt;/pre&gt;</span><br></pre></td></tr></table></figure><p><img src="https://ju-da-ren.wang/images/pre.png" alt="pre" title="pre"></p><p>解决方法：用 white-space:pre-line 或者 white-space:pre-wrap 就可以轻松解决。</p>]]></content>
+      
+      
       <categories>
-        <category>web 前端开发</category>
+          
+          <category> web 前端开发 </category>
+          
       </categories>
-      <tags>
-        <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F01%2F25%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的博客是怎样炼成的？</title>
+      <link href="/2019/02/18/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%98%AF%E6%80%8E%E6%A0%B7%E7%82%BC%E6%88%90%E7%9A%84%EF%BC%9F/"/>
+      <url>/2019/02/18/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%98%AF%E6%80%8E%E6%A0%B7%E7%82%BC%E6%88%90%E7%9A%84%EF%BC%9F/</url>
+      
+        <content type="html"><![CDATA[<p>最近忙里偷闲整了个新博客，原来的博客源码找不到了，也没怎么写东西，就重新开发了一个，其实平时不太喜欢写东西，但感觉记录一下平时之所学还是很有益处的。下面介绍一下自己的建站流程。</p><h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p> Hexo + GitHub</p><p> Hexo 是一款基于 Node.js 的静态博客框架，快速简洁，插件丰富，并且支持 Markdown,开发也很简单，可以生成静态网页托管到 GitHub 或 Heroku 上，我选用的是 GitHub。</p><h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><ul><li>获得个人网站域名</li><li>GitHub创建个人仓库</li><li>安装Git</li><li>安装Node.js</li><li>安装Hexo</li><li>推送网站</li><li>绑定域名</li><li>更换主题</li><li>初识MarkDown语法</li><li>发布文章</li><li>寻找图床</li><li>个性化设置</li></ul><h3 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h3><p>可以在阿里云或腾讯云上申请自己的个性域名，使用 GitHub 托管网站，不需要备案，因为托管我们网站的服务器在美国，而且国内备案流程比较繁杂，省去了备案流程也节省了时间。</p><h3 id="GitHub-创建个人仓库"><a href="#GitHub-创建个人仓库" class="headerlink" title="GitHub 创建个人仓库"></a>GitHub 创建个人仓库</h3><p>登录 GitHub 账号，然后创建新仓库，仓库名应该为：用户名.github.io，这是固定写法 比如我的仓库名是 summerwang0915.github.io。</p><h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>首先安装 Hexo 命令行工具</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure><p>然后初始化我们的博客</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure><p>为了查看我们的博客雏形，本地启动博客，</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>完成后访问 localhost:4000 即可看到我们博客啦。</p><h3 id="自定义博客"><a href="#自定义博客" class="headerlink" title="自定义博客"></a>自定义博客</h3><p>选择一个自己喜欢的主题，我选择的是 <a href="https://github.com/sabrinaluo/hexo-theme-replica" target="_blank" rel="noopener">hexo-theme-replica</a>。这个主题是 GitHub 风格的，我稍加修改了下，改成了自己喜欢的样子。</p><p>在 _config.yml 文件里修改主题的名字</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: hexo-theme-replica</span><br></pre></td></tr></table></figure><p>然后可以修改主题的样式和功能，最后得到自己想要的博客的样子。</p><h3 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h3><p>链接 GitHub</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:summerwang0915/blog.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>分别执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure><p>这三条命令是部署网站的命令：<br>hexo g 是 hexo generate 的缩写，用来生成静态文件（public）。<br>hexo d 是 hexo deploy的缩写，用来将生成的静态文件部署到 GitHub 上。<br>hexo clean 用来清除缓存文件和已生成的静态文件。在某些情况下，如果发现对站点的修改不生效，可能需要该命令。</p><p>部署完成后，略等几秒后，访问网站地址，即 xxxx.github.io，你会发现博客已经在线上能访问了。</p><h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>如果你想使用自己的个性化域名，则需要在域名代理厂商那里申请想要的域名。我申请的是腾讯云的域名。域名申请完毕后，进入代腾讯云管理控制台的域名列表，进行解析。</p><p><img src="https://ju-da-ren.wang/images/yuming.png" alt="域名" title="域名"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web 前端开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo 搭建静态博客</title>
+      <link href="/2019/01/25/Hexo%20%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2019/01/25/Hexo%20%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
 </search>
