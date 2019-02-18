@@ -1,45 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>pre 标签文字换行解决方案</title>
-      <link href="/2019/02/18/pre-%E6%A0%87%E7%AD%BE%E6%96%87%E5%AD%97%E6%8D%A2%E8%A1%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-      <url>/2019/02/18/pre-%E6%A0%87%E7%AD%BE%E6%96%87%E5%AD%97%E6%8D%A2%E8%A1%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-      
-        <content type="html"><![CDATA[<p>大家经常遇到这种情况，当一行文字里包含英文字母或数字时会出现不换行局面，一般用 word-wrap:break-word 强制换行就能解决该问题。</p><p>但有时候后端返回的数据包含 &lt;pre> 标签的时候，用 word-wrap:break-word 换行是没有效果的。</p><p>简单的说就是 &lt;pre> 标签文字无法用 word-wrap:break-word 换行的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  pre &#123;</span><br><span class="line">    display: block; </span><br><span class="line">    width: 200px; </span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: #ddd;</span><br><span class="line">    word-wrap: break-word;</span><br><span class="line">  &#125;  </span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;pre&gt;hexohexohexohexohexohexohexohexohexohexohexohexohexohexohexo&lt;/pre&gt;</span><br></pre></td></tr></table></figure><p><img src="https://ju-da-ren.wang/images/pre.png" alt="pre" title="pre"></p><p>解决方法：用 white-space:pre-line 或者 white-space:pre-wrap 就可以轻松解决。</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title><![CDATA[pre 标签文字换行解决方案]]></title>
+    <url>%2F2019%2F02%2F18%2Fpre-%E6%A0%87%E7%AD%BE%E6%96%87%E5%AD%97%E6%8D%A2%E8%A1%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%2F</url>
+    <content type="text"><![CDATA[大家经常遇到这种情况，当一行文字里包含英文字母或数字时会出现不换行局面，一般用 word-wrap:break-word 强制换行就能解决该问题。 但有时候后端返回的数据包含 &lt;pre> 标签的时候，用 word-wrap:break-word 换行是没有效果的。 简单的说就是 &lt;pre> 标签文字无法用 word-wrap:break-word 换行的。 1234567891011&lt;style&gt; pre &#123; display: block; width: 200px; height: 100px; background-color: #ddd; word-wrap: break-word; &#125; &lt;/style&gt;&lt;pre&gt;hexohexohexohexohexohexohexohexohexohexohexohexohexohexohexo&lt;/pre&gt; 解决方法：用 white-space:pre-line 或者 white-space:pre-wrap 就可以轻松解决。]]></content>
       <categories>
-          
-          <category> web 前端开发 </category>
-          
+        <category>web 前端开发</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> CSS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2019/01/25/hello-world/"/>
-      <url>/2019/01/25/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F01%2F25%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
 </search>
