@@ -89,15 +89,15 @@ function handleSearch(value) {
     <ul class="header-toolbar">
       <li class="clearfix">
         <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
-        <a href="/archives" class="header-toolbar-right"> 2 </a>
+        <a href="/archives" class="header-toolbar-right"> 4 </a>
       </li>
       <li>
         <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
-        <a href="/tags" class="header-toolbar-right"> 3 </a>
+        <a href="/tags" class="header-toolbar-right"> 2 </a>
       </li>
       <li>
         <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
-        <a href="/categories" class="header-toolbar-right"> 2 </a>
+        <a href="/categories" class="header-toolbar-right"> 1 </a>
       </li>
     </ul>
     <h2 class="header-title">
@@ -124,10 +124,10 @@ function handleSearch(value) {
   <article class="post-content">
     <h1>我的博客是怎样炼成的？</h1>
     <p>最近忙里偷闲整了个新博客，原来的博客源码找不到了，也没怎么写东西，就重新开发了一个，其实平时不太喜欢写东西，但感觉记录一下平时之所学还是很有益处的。下面介绍一下自己的建站流程。</p>
-<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p> Hexo + GitHub</p>
+<h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h3><p> Hexo + GitHub</p>
 <p> Hexo 是一款基于 Node.js 的静态博客框架，快速简洁，插件丰富，并且支持 Markdown,开发也很简单，可以生成静态网页托管到 GitHub 或 Heroku 上，我选用的是 GitHub。</p>
 <h3 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h3><p>可以在阿里云或腾讯云上申请你的个性域名，使用 GitHub 托管网站，不需要备案，因为托管我们网站的服务器在美国，而且国内备案流程比较繁杂，省去了备案流程也节省了时间。</p>
-<h3 id="GitHub-创建个人仓库"><a href="#GitHub-创建个人仓库" class="headerlink" title="GitHub 创建个人仓库"></a>GitHub 创建个人仓库</h3><p>登录 GitHub 账号，然后创建新仓库，仓库名应该为：用户名.github.io，这是固定写法 比如我的仓库名是 summerwang0915.github.io。</p>
+<h3 id="GitHub-创建个人仓库"><a href="#GitHub-创建个人仓库" class="headerlink" title="GitHub 创建个人仓库"></a>GitHub 创建个人仓库</h3><p>登录 GitHub 账号，然后创建新仓库，仓库名应该为：用户名.github.io，这是固定写法，比如我的仓库名是 summerwang0915.github.io。</p>
 <h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>首先安装 Hexo 命令行工具</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <p>然后初始化我们的博客</p>
@@ -150,10 +150,9 @@ function handleSearch(value) {
 <h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>如果你想使用个性化域名，则需要在域名代理厂商那里申请。我申请的是腾讯云的域名。域名申请完毕后，进入代腾讯云管理控制台的域名列表，进行解析。</p>
 <p><img src="https://ju-da-ren.wang/images/yuming.png" alt="域名" title="域名"><br><img src="https://ju-da-ren.wang/images/jiexi.png" alt="域名解析" title="域名解析"></p>
 <p>添加两条解析记录,有的时候访问可能会加上 www，其中 185.199.108.153 是 ping 你的 xxxx.github.io 的获得的ip地址。</p>
-<p>最后在 source 文件夹下创建 CNAME 文件，把域名填进去</p>
+<p>最后在 source 文件夹下创建 CNAME 文件，把域名填进去。推送到 GitHub 上后，CNAME 文件会显示在根目录下。</p>
 <p><img src="https://ju-da-ren.wang/images/cname.png" alt="CNAME" title="CNAME"><br><img src="https://ju-da-ren.wang/images/cname2.png" alt="CNAME" title="CNAME"></p>
-<p>大功告成，在浏览器输入你的个性化域名就可以访问你的博客啦。</p>
-
+<h4 id="大功告成，在浏览器输入你的个性化域名就可以访问你的博客啦。"><a href="#大功告成，在浏览器输入你的个性化域名就可以访问你的博客啦。" class="headerlink" title="大功告成，在浏览器输入你的个性化域名就可以访问你的博客啦。"></a>大功告成，在浏览器输入你的个性化域名就可以访问你的博客啦。</h4>
   </article>
 </div>
 
