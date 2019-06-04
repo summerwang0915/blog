@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    [1, 2, 3].map(parseInt) 背后的故事 | 橘大人的 Blog
+  </title>
+  <meta name="description" content="写代码要跟写书法一样写一辈子，喵～">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo">
+        <img src="https://octodex.github.com/images/minion.png" width="40px">
+      </a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1"><i class="fas fa-search"></i></label>
+          <input type="text" id="search-input" placeholder="标题或内容">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        <!-- 
+        <li class="desktop-only"><a class="navbar-rss" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li>
+         -->
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+$('#search-input').on('keypress', function(e){
+  if (e.keyCode == 13) {
+    handleSearch($(this).val());
+  }
+});
+
+$('.navbar-search .fa-search').on('click', function(){
+  handleSearch($('#search-input').val());
+});
+
+function handleSearch(value) {
+  if (value) {
+    window.location.href = '/search/?w='+ value.trim();
+  }
+}
+
+</script>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 5 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 1 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">橘大人的 Blog</a>
+      
+      
+    </h2>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="far fa-user"></i>
+    
+
+    <span class="post-date float-right" title="{{moment(1559488647000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fas fa-pencil-alt"></i>
+      {{moment(1559488647000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>[1, 2, 3].map(parseInt) 背后的故事</h1>
+    <p>[‘1’, ‘2’, ‘3’].map(parseInt) 算是一道经典面试题，当我第一次看到这个题目的时候，脑海里蹦出的答案是 [1, 2, 3], 但答案却是 [1, NaN, NaN]。</p>
+<p>如果想要理解这个问题，必须要了解两个方法， parseInt 和 map。</p>
+<h3 id="parseInt"><a href="#parseInt" class="headerlink" title="parseInt"></a>parseInt</h3><p>parseInt 函数可用来解析一个字符串，然后返回一个整数。包含两个参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parseInt(string, radix)</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>参数 string 是要被解析的值。如果参数不是 string，则使用 tostring 函数将其转化为字符串。</p>
+</li>
+<li><p>参数 radix 是一个介于 2 到 36 的整数，表示解析字符串的基数。基数表示几进制，默认是 10 （十进制）。如果 radix 在这个范围之外，parseInt 的结果为 NaN。</p>
+</li>
+</ol>
+<p>在 radix 值为空 （不传，undefined，或者radix为 0）的情况下，JavaScript 作如下处理：</p>
+<ol>
+<li>如果字符串 string 以 ‘0x’ 或者 ‘0X’ 开头, 则默认基数是16 (16进制)；</li>
+<li>如果字符串 string 以 ‘0’ 开头, 默认基数是8（八进制）或者10（十进制），不同的环境使用的基数不同，因此，最好明确给出 radix 参数的值；</li>
+<li>如果字符串 string 以其它任何值开头，则默认基数是10 (十进制)。</li>
+</ol>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>map 是数组的用法，该方法调用一个函数基于数组的每个元素生成一个新的数组。</p>
+<p>举个🌰</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3].map((item, index, arr) =&gt; &#123;</span><br><span class="line">  return item * 2</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>回调函数包含三个参数</p>
+<ol>
+<li>item 是正在处理的数组的某个元素；</li>
+<li>index 是正在处理的元素在数组中的索引位置；</li>
+<li>arr 是当前正在处理的数组。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;].map(parseInt)</span><br></pre></td></tr></table></figure>
+<p>等同于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;].map((item ,index) =&gt; &#123;</span><br><span class="line">  parseInt(item, index)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>得到的返回值是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parseInt(&apos;1&apos;, 0) // 1 基数为 0， 八进制或十进制</span><br><span class="line">parseInt(&apos;2&apos;, 1) // NaN, 1 不在 2-36 之间</span><br><span class="line">parseInt(&apos;3&apos;, 2) // NaN, 3 不是二进制</span><br></pre></td></tr></table></figure>
+<p>所以结果是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&apos;1&apos;, &apos;2&apos;, &apos;3&apos;].map(parseInt)</span><br><span class="line">// 1, NaN, NaN</span><br></pre></td></tr></table></figure>
+<p>以上～</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </footer></div>
+    
+  
+
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
+
+
+    
