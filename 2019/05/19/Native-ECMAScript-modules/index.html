@@ -1,135 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
+
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Native ECMAScript modules | 橘大人的 Blog
+  </title>
+  <meta name="description" content="写代码要跟写书法一样写一辈子，喵～">
+  
+  <meta name="keywords" content="
+  ECMAScript
+  ">
+  
+  <meta name="author" content="">
 
-    <meta name="description" content="写代码要跟写书法一样写一辈子，喵～">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
 
-
-<title>Native ECMAScript modules | 橘大人的 Blog</title>
-
-
-
-    <link rel="icon" href="/favicon.ico">
-
-
-
-
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
-
-
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-
-
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 </head>
-<body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
 
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo">
+        <img src="https://octodex.github.com/images/minion.png" width="40px">
+      </a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1"><i class="fas fa-search"></i></label>
+          <input type="text" id="search-input" placeholder="标题或内容">
+          <div id="local-search-result" class="local-search-result-cls"></div>
         </div>
-    </nav>
+      </div>
 
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-            </div>
-        </div>
-    </nav>
-
-</header>
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        <!-- 
+        <li class="desktop-only"><a class="navbar-rss" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li>
+         -->
+      </ul>
+    </div>
+  </div>
+</nav>
 <script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
+$('#search-input').on('keypress', function(e){
+  if (e.keyCode == 13) {
+    handleSearch($(this).val());
+  }
+});
+
+$('.navbar-search .fa-search').on('click', function(){
+  handleSearch($('#search-input').val());
+});
+
+function handleSearch(value) {
+  if (value) {
+    window.location.href = '/search/?w='+ value.trim();
+  }
+}
+
 </script>
-        <div class="main">
-            <div class="container">
-    
-    
-        <div id="post-toc" class="post-toc">
-            <span class="post-toc-title">catalogue</span>
-            <div class="post-toc-content">
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-模块化"><span class="toc-text">JS 模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-modules-和传统-Javascript-的区别"><span class="toc-text">JS modules 和传统 Javascript 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#import-引入路径支持还不完善"><span class="toc-text">import 引入路径支持还不完善</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向后兼容"><span class="toc-text">向后兼容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异步加载"><span class="toc-text">异步加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#预加载"><span class="toc-text">预加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载过程中的差异"><span class="toc-text">加载过程中的差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态导入"><span class="toc-text">动态导入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局限性"><span class="toc-text">局限性</span></a></li></ol>
-            </div>
-        </div>
-    
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">Native ECMAScript modules</h1>
-            
-                <div class="post-meta">
-                    
 
-                    
-                        <span class="post-time">
-                        Date: <a href="#">May 19, 2019&nbsp;&nbsp;22:22:49</a>
-                        </span>
-                    
-                    
-                        <span class="post-category">
-                    Category:
-                            
-                                <a href="/categories/web-前端开发/">web 前端开发</a>
-                            
-                        </span>
-                    
-                </div>
-            
-        </header>
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 5 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 1 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">橘大人的 Blog</a>
+      
+      
+    </h2>
+  </div>
+</header>
 
-        <section class="post-content">
-            <p>JS modules 是从 ES6 开始引入的模块系统。由于历史原因，我们借助 babel 等编译工具才能提前使用这些特性。<br>好消息是，越来越多的主流浏览器开始支持 ES modules。 到目前为止，大部分主流浏览器都已经支持了原生 JavaScript modules，这意味着我们可以不用打包编译就可以使用 JavaScript modules。</p>
+
+<div class="post-container container">
+  <h3>
+    <i class="far fa-user"></i>
+    
+
+    <span class="post-date float-right" title="{{moment(1558275769000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fas fa-pencil-alt"></i>
+      {{moment(1558275769000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Native ECMAScript modules</h1>
+    <p>JS modules 是从 ES6 开始引入的模块系统。由于历史原因，我们借助 babel 等编译工具才能提前使用这些特性。<br>好消息是，越来越多的主流浏览器开始支持 ES modules。 到目前为止，大部分主流浏览器都已经支持了原生 JavaScript modules，这意味着我们可以不用打包编译就可以使用 JavaScript modules。</p>
 <p><img src="https://pic1.zhimg.com/v2-adf5f710b752c732b04a93cf1d5b58e9.png" alt="浏览器" title="浏览器"></p>
 <h3 id="JS-模块化"><a href="#JS-模块化" class="headerlink" title="JS 模块化"></a>JS 模块化</h3><p>在 JS 发展的历程中，诞生过很多模块化方案，例如 CommonJS, AMD, CMD 等，但没有一个统一的规范。ES6 Modules 的出现，将模块语法统一起来。<br>在 JS modules 中，可以使用 export 和 import 导出导入模块</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// hello.js</span><br><span class="line">export default function() &#123;</span><br><span class="line">  console.log(&apos;hello world!&apos;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import sayHello from &apos;./hello/js&apos;</span><br><span class="line">sayHello()</span><br></pre></td></tr></table></figure>
@@ -168,72 +162,35 @@
 <p>HTTP2 的 server push 特性，还不能很好的在高度模块化应用使用，web 服务器和浏览器目前也没有针对这种情况进行优化。</p>
 <p>参考：<br><a href="https://jakearchibald.com/2017/es-modules-in-browsers/" target="_blank" rel="noopener">https://jakearchibald.com/2017/es-modules-in-browsers/</a><br><a href="https://hospodarets.com/native-ecmascript-modules-the-first-overview#nodejs-way-to-mark-the-file-as-a-module" target="_blank" rel="noopener">https://hospodarets.com/native-ecmascript-modules-the-first-overview#nodejs-way-to-mark-the-file-as-a-module</a></p>
 
-        </section>
-
-        
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="https://ju-da-ren.wang/2019/05/19/Native-ECMAScript-modules/">https://ju-da-ren.wang/2019/05/19/Native-ECMAScript-modules/</a></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>License:</span>
-                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
-                    </p>
-                
-                
-                     <p class="copyright-item">
-                         <span>Solgan:</span>
-                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
-                     </p>
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/ECMAScript/"># ECMAScript</a>
-                    
-                        
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-                <a class="prev" rel="prev" href="/2019/05/28/React-如何阻止事件冒泡？/">React 如何阻止事件冒泡？</a>
-            
-            
-            <a class="next" rel="next" href="/2019/02/18/pre-标签文字换行解决方案/">pre 标签文字换行解决方案</a>
-            
-        </section>
-
-
-    </article>
+  </article>
 </div>
-        </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>©  | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Sirice19/hexo-theme-Chic" target="_blank">Chic</a></span>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
     </div>
-</footer>
-    </div>
+    </footer></div>
+    
+  
+
+
+
+
+
+<script src="/js/main.js"></script>
+
 </body>
 </html>
+
+
+    

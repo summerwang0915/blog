@@ -1,128 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
+
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    React 如何阻止事件冒泡？ | 橘大人的 Blog
+  </title>
+  <meta name="description" content="写代码要跟写书法一样写一辈子，喵～">
+  
+  <meta name="keywords" content="
+  React
+  ">
+  
+  <meta name="author" content="">
 
-    <meta name="description" content="写代码要跟写书法一样写一辈子，喵～">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
 
-
-<title>React 如何阻止事件冒泡？ | 橘大人的 Blog</title>
-
-
-
-    <link rel="icon" href="/favicon.ico">
-
-
-
-
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
-
-
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-
-
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 </head>
-<body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
 
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo">
+        <img src="https://octodex.github.com/images/minion.png" width="40px">
+      </a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1"><i class="fas fa-search"></i></label>
+          <input type="text" id="search-input" placeholder="标题或内容">
+          <div id="local-search-result" class="local-search-result-cls"></div>
         </div>
-    </nav>
+      </div>
 
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-            </div>
-        </div>
-    </nav>
-
-</header>
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        <!-- 
+        <li class="desktop-only"><a class="navbar-rss" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li>
+         -->
+      </ul>
+    </div>
+  </div>
+</nav>
 <script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
+$('#search-input').on('keypress', function(e){
+  if (e.keyCode == 13) {
+    handleSearch($(this).val());
+  }
+});
+
+$('.navbar-search .fa-search').on('click', function(){
+  handleSearch($('#search-input').val());
+});
+
+function handleSearch(value) {
+  if (value) {
+    window.location.href = '/search/?w='+ value.trim();
+  }
+}
+
 </script>
-        <div class="main">
-            <div class="container">
-    
-    
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">React 如何阻止事件冒泡？</h1>
-            
-                <div class="post-meta">
-                    
 
-                    
-                        <span class="post-time">
-                        Date: <a href="#">May 28, 2019&nbsp;&nbsp;10:52:26</a>
-                        </span>
-                    
-                    
-                        <span class="post-category">
-                    Category:
-                            
-                                <a href="/categories/web-前端开发/">web 前端开发</a>
-                            
-                        </span>
-                    
-                </div>
-            
-        </header>
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 5 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 4 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 1 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">橘大人的 Blog</a>
+      
+      
+    </h2>
+  </div>
+</header>
 
-        <section class="post-content">
-            <p>废话不多说，先上代码 :)</p>
+
+<div class="post-container container">
+  <h3>
+    <i class="far fa-user"></i>
+    
+
+    <span class="post-date float-right" title="{{moment(1559011946000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fas fa-pencil-alt"></i>
+      {{moment(1559011946000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>React 如何阻止事件冒泡？</h1>
+    <p>废话不多说，先上代码 :)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class App extends Component &#123;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    document.addEventListener(&apos;click&apos;, () =&gt; &#123;</span><br><span class="line">      console.log(&apos;document click&apos;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    document.body.addEventListener(&apos;click&apos;, () =&gt; &#123;</span><br><span class="line">      console.log(&apos;body click&apos;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    document.getElementById(&apos;child&apos;).addEventListener(&apos;click&apos;, () =&gt; &#123;</span><br><span class="line">      console.log(&apos;child click&apos;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    document.getElementById(&apos;parent&apos;).addEventListener(&apos;click&apos;, () =&gt; &#123;</span><br><span class="line">      console.log(&apos;parent click&apos;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  outClick(e) &#123;</span><br><span class="line">    console.log(&apos;outClick&apos;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onClick(e) &#123;</span><br><span class="line">    e.stopPropagation()</span><br><span class="line">    console.log(&apos;onclick&apos;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div id=&quot;parent&quot; className=&quot;App&quot; onClick=&#123;this.outClick&#125;&gt;</span><br><span class="line">        &lt;button id=&quot;child&quot; onClick=&#123;this.onClick&#125;&gt;test&lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App;</span><br></pre></td></tr></table></figure>
 <p>点击 button 后，这段代码的输出结果是什么呢？</p>
 <p><img src="https://pic2.zhimg.com/v2-cff6bbe9d9f6f452179c9b70d62adaa4.png" alt="浏览器" title="浏览器"></p>
@@ -139,72 +140,35 @@
 <p><img src="https://pic2.zhimg.com/v2-dcad4ff052713d11a354206e6578e99a.png" alt="浏览器" title="浏览器"></p>
 <p>以上！</p>
 
-        </section>
-
-        
-            <section class="post-copyright">
-                
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="https://ju-da-ren.wang/2019/05/28/React-如何阻止事件冒泡？/">https://ju-da-ren.wang/2019/05/28/React-如何阻止事件冒泡？/</a></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>License:</span>
-                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
-                    </p>
-                
-                
-                     <p class="copyright-item">
-                         <span>Solgan:</span>
-                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
-                     </p>
-                
-
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/React/"># React</a>
-                    
-                        
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-                <a class="prev" rel="prev" href="/2019/06/02/1-2-3-map-parseInt-背后的故事/">[1, 2, 3].map(parseInt) 背后的故事</a>
-            
-            
-            <a class="next" rel="next" href="/2019/05/19/Native-ECMAScript-modules/">Native ECMAScript modules</a>
-            
-        </section>
-
-
-    </article>
+  </article>
 </div>
-        </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>©  | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Sirice19/hexo-theme-Chic" target="_blank">Chic</a></span>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
     </div>
-</footer>
-    </div>
+    </footer></div>
+    
+  
+
+
+
+
+
+<script src="/js/main.js"></script>
+
 </body>
 </html>
+
+
+    

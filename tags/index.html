@@ -1,115 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
+
+
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    tags | 橘大人的 Blog
+  </title>
+  <meta name="description" content="写代码要跟写书法一样写一辈子，喵～">
+  
+  <meta name="author" content="">
 
-    <meta name="description" content="写代码要跟写书法一样写一辈子，喵～">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
 
-
-<title>tags | 橘大人的 Blog</title>
-
-
-
-    <link rel="icon" href="/favicon.ico">
-
-
-
-
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
-    
-
-
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-
-
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 </head>
-<body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
 
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo">
+        <img src="https://octodex.github.com/images/minion.png" width="40px">
+      </a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1"><i class="fas fa-search"></i></label>
+          <input type="text" id="search-input" placeholder="标题或内容">
+          <div id="local-search-result" class="local-search-result-cls"></div>
         </div>
-    </nav>
+      </div>
 
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-            </div>
-        </div>
-    </nav>
-
-</header>
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        <!-- 
+        <li class="desktop-only"><a class="navbar-rss" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li>
+         -->
+      </ul>
+    </div>
+  </div>
+</nav>
 <script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
+$('#search-input').on('keypress', function(e){
+  if (e.keyCode == 13) {
+    handleSearch($(this).val());
+  }
+});
+
+$('.navbar-search .fa-search').on('click', function(){
+  handleSearch($('#search-input').val());
+});
+
+function handleSearch(value) {
+  if (value) {
+    window.location.href = '/search/?w='+ value.trim();
+  }
+}
+
 </script>
-        <div class="main">
-            <div class="container">
-    <article class="post-wrap page">
-        
-        <h2 class="post-title">tags</h2>
-        
-        <section class="post-content">
-            
-        </section>
-    </article>
+
+<div class="main-container">
+  <div class="container-lg">
+  
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://octodex.github.com/images/gobbleotron.gif">
+    <div class="user-name">
+      <div class="blog-title">橘大人的 Blog</div>
+      <div class="blog-author"></div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fas fa-map-marker-alt"></i>
+      Bei Jing, China
+    </li>
+    
+    <li>
+      <i class="fa fa-envelope-o"></i>
+      <a href="mailto:summerwang0915@gmail.com">summerwang0915@gmail.com</a>
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="https://ju-da-ren.wang">https://ju-da-ren.wang</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      写代码要跟写书法一样写一辈子，喵～
+    </div>
+  </div>
+
+  <ul class="user-detail desktop-only">
+    
+    <li>
+      <i class="fas fa-building"></i>
+      知乎
+    </li>
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      Bei Jing, China
+    </li>
+    
+    <li>
+      <i class="far fa-envelope"></i>
+      <a href="mailto:summerwang0915@gmail.com">summerwang0915@gmail.com</a>
+    </li>
+    
+  </ul>
+
+  <div class="social-media desktop-only">
+    <h4>Social Media</h4>
+    <ul>
+      
+      <li class="social-media-item"><a href="https://github.com/summerwang0915" target="_blank"><i class="fab fa-git"></i></a></li>
+      
+        <li class="social-media-item"><a href="https://www.zhihu.com/people/ju-da-ren/activities" target="_blank"><i class="fab fa-zhihu"></i></a></li>
+      
+    </ul>
+  </div>
 </div>
 
-        </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>©  | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Sirice19/hexo-theme-Chic" target="_blank">Chic</a></span>
+
+  <div class="blog-detail">
+    <div class="body-secondary">
+
+      
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/">ECMAScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li></ul>
+      
+      
+      
     </div>
-</footer>
+  </div>
+</div>
+
+<script>
+    var url = window.location.href;
+    
+    // 判断是否是搜索页面
+    if (url.indexOf('search') > -1) {
+      var searchVal = getKeyword();
+      var resultList = [];
+      if (!searchVal) { window.location.href = '/'; }
+      $.get('../content.json', function(data) {
+        data.forEach(function(item) {
+          if (
+            item.title.indexOf(searchVal) > -1 ||
+            item.text.indexOf(searchVal) > -1
+          ) {
+            resultList.push(item);
+          }
+        });
+        renderResultList(resultList);
+      });
+    }
+    
+    // 判断是否存在搜索关键字
+    function getKeyword() {
+      var searchVal = decodeURIComponent(url.split('w=')[1]);
+      if (url.indexOf('w=') < 0) { return null; }
+      if (searchVal === '') { return null; }
+      return searchVal;
+    }
+    
+    // 渲染结果列表
+    function renderResultList(dataList) {
+      var templateHtml = '<ul class="listing"><h3>搜索结果</h3><div class="listing-count">本次共搜索到 ' + dataList.length + ' 条结果</div>';
+      if (dataList.length) {
+        dataList.forEach(function(item) {
+          templateHtml +=
+            '<li class="listing-item">' +
+              '<a href="/'+ item.path +'" title="'+ item.title +'">' +
+                item.title +
+              '</a>' +
+              '<div class="post-time">' +
+                '<span class="date">' +
+                  item.date +
+                '</span>' +
+              '</div>' +
+            '</li>';
+        });
+      } else {
+        templateHtml += '<p>返回首页重新搜索，<a href="/">点我</a></p>';
+      }
+      templateHtml += '</ul>';
+      $('.post-information > .meta > .info').append('本次共搜索到 ' + dataList.length + ' 条结果');
+      $('.search-content').html(templateHtml);
+    }
+    
+    </script>
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
     </div>
+    </footer></div>
+    
+  
+
+
+
+
+
+<script src="/js/main.js"></script>
+
 </body>
 </html>
+
+
+    
