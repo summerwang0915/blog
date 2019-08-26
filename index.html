@@ -176,26 +176,6 @@ function handleSearch(value) {
           <div class="clearfix">
             <h5 class="post-title text-ellipsis">
               <i class="fa fa-bars"></i>
-              <a href="/2019/07/28/a-1-a-2-a-3-为-true-成立吗/">(a== 1 &amp;&amp; a ==2 &amp;&amp; a==3) 为 true 成立吗?</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-               最近去面试，遇到这么一个面试题, (a== 1 &amp;amp;&amp;amp; a ==2 &amp;amp;&amp;am
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <i class="fa fa-folder-open"></i> Uncategorized
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 0 </span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
               <a href="/2019/07/19/如何创建一个包含 100 个元素的数组？/">如何创建一个包含 100 个元素的数组？</a>
             </h5>
             <p class="post-description text-ellipsis desktop-only">
@@ -274,6 +254,26 @@ function handleSearch(value) {
           </div>
         </li>
         
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/2019/02/18/pre-标签文字换行解决方案/">pre 标签文字换行解决方案</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+               大家经常遇到这种情况，当一行文字里包含英文字母或数字时会出现不换行局面，一般用 word-wrap
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <a class="category-link" href="/categories/web-前端开发/"><i class="fa fa-folder-open"></i> web 前端开发</a>
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 1 </span>
+            </p>
+          </div>
+        </li>
+        
       </ul>
       <div class="calendar-container" id="calendar">
   <div class="calendar">
@@ -339,7 +339,7 @@ function handleSearch(value) {
 
 
 <script>
-  var posts = [{"date":"2019-02-18","title":"pre 标签文字换行解决方案","url":"https://ju-da-ren.wang/2019/02/18/pre-标签文字换行解决方案/"},{"date":"2019-02-18","title":"我的博客是怎样炼成的？","url":"https://ju-da-ren.wang/2019/02/18/我的博客是怎样炼成的？/"},{"date":"2019-05-19","title":"Native ECMAScript modules","url":"https://ju-da-ren.wang/2019/05/19/Native-ECMAScript-modules/"},{"date":"2019-05-28","title":"React 如何阻止事件冒泡？","url":"https://ju-da-ren.wang/2019/05/28/React-如何阻止事件冒泡？/"},{"date":"2019-06-02","title":"[1, 2, 3].map(parseInt) 背后的故事","url":"https://ju-da-ren.wang/2019/06/02/[1, 2, 3].map(parseInt) 背后的故事/"},{"date":"2019-07-19","title":"如何创建一个包含 100 个元素的数组？","url":"https://ju-da-ren.wang/2019/07/19/如何创建一个包含 100 个元素的数组？/"},{"date":"2019-07-28","title":"(a== 1 && a ==2 && a==3) 为 true 成立吗?","url":"https://ju-da-ren.wang/2019/07/28/a-1-a-2-a-3-为-true-成立吗/"},{"date":"2019-08-26","title":"HTTP1.0、HTTP1.1 和 HTTP2.0 的区别","url":"https://ju-da-ren.wang/2019/08/26/HTTP1.0、HTTP1.1 和 HTTP2.0 的区别/"}];
+  var posts = [{"date":"2019-02-18","title":"pre 标签文字换行解决方案","url":"https://ju-da-ren.wang/2019/02/18/pre-标签文字换行解决方案/"},{"date":"2019-02-18","title":"我的博客是怎样炼成的？","url":"https://ju-da-ren.wang/2019/02/18/我的博客是怎样炼成的？/"},{"date":"2019-05-19","title":"Native ECMAScript modules","url":"https://ju-da-ren.wang/2019/05/19/Native-ECMAScript-modules/"},{"date":"2019-05-28","title":"React 如何阻止事件冒泡？","url":"https://ju-da-ren.wang/2019/05/28/React-如何阻止事件冒泡？/"},{"date":"2019-06-02","title":"[1, 2, 3].map(parseInt) 背后的故事","url":"https://ju-da-ren.wang/2019/06/02/[1, 2, 3].map(parseInt) 背后的故事/"},{"date":"2019-07-19","title":"如何创建一个包含 100 个元素的数组？","url":"https://ju-da-ren.wang/2019/07/19/如何创建一个包含 100 个元素的数组？/"},{"date":"2019-08-26","title":"HTTP1.0、HTTP1.1 和 HTTP2.0 的区别","url":"https://ju-da-ren.wang/2019/08/26/HTTP1.0、HTTP1.1 和 HTTP2.0 的区别/"}];
   var today = moment().format('YYYY-MM-DD');
   var oneYearAgo = moment(today).subtract(1, 'years');
   posts = posts.filter(function(post) {
