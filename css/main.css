@@ -578,7 +578,6 @@ pre {
 }
 .footer {
   position: relative;
-  padding-top: 40px;
   padding-bottom: 40px;
   margin-top: 40px;
   font-size: 12px;
@@ -592,6 +591,9 @@ pre {
     color: #959da5;
     text-align: center;
   }
+}
+.footer .friend-links {
+  margin-left: 250px;
 }
 .footer-social-link {
   margin: 0 0 0 -10px;
@@ -610,6 +612,7 @@ pre {
   margin-left: 10px;
 }
 .footer-theme-info {
+  margin-top: 15px;
   text-align: center;
 }
 .footer-logo {

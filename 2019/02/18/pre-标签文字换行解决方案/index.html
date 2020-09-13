@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    pre 标签文字换行解决方案 | 喵了个咪
+  </title>
+  <meta name="description" content="">
+  
+  <meta name="keywords" content="
+  CSS
+  ">
+  
+  <meta name="author" content="">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo">
+        <img src="https://i.loli.net/2019/07/28/5d3d14716fcd891259.png" width="40px">
+      </a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1"><i class="fas fa-search"></i></label>
+          <input type="text" id="search-input" placeholder="标题或内容">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        <!-- 
+        <li class="desktop-only"><a class="navbar-rss" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li>
+         -->
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+$('#search-input').on('keypress', function(e){
+  if (e.keyCode == 13) {
+    handleSearch($(this).val());
+  }
+});
+
+$('.navbar-search .fa-search').on('click', function(){
+  handleSearch($('#search-input').val());
+});
+
+function handleSearch(value) {
+  if (value) {
+    window.location.href = '/search/?w='+ value.trim();
+  }
+}
+
+</script>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 8 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 5 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 1 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">喵了个咪</a>
+      
+      
+    </h2>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="far fa-user"></i>
+    
+
+    <span class="post-date float-right" title="{{moment(1550460591000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fas fa-pencil-alt"></i>
+      {{moment(1550460591000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>pre 标签文字换行解决方案</h1>
+    <p>大家经常遇到这种情况，当一行文字里包含英文字母或数字时会出现不换行局面，一般用 word-wrap:break-word 强制换行就能解决该问题。</p>
+<p>但有时候后端返回的数据包含 &lt;pre> 标签的时候，用 word-wrap:break-word 换行是没有效果的。</p>
+<p>简单的说就是 &lt;pre> 标签文字无法用 word-wrap:break-word 换行的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  pre &#123;</span><br><span class="line">    display: block; </span><br><span class="line">    width: 200px; </span><br><span class="line">    height: 100px;</span><br><span class="line">    background-color: #ddd;</span><br><span class="line">    word-wrap: break-word;</span><br><span class="line">  &#125;  </span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;pre&gt;hexohexohexohexohexohexohexohexohexohexohexohexohexohexohexo&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://ju-da-ren.wang/images/pre.png" alt="pre" title="pre"></p>
+<p>解决方法：用 white-space:pre-line 或者 white-space:pre-wrap 就可以轻松解决。</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="friend-links">
+      <h2>友情链接</h2>
+      <div>
+        <a href="https://kalasearch.cn/">卡拉搜索</a>
+      </div>
+    </div>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </footer></div>
+    
+  
+
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
+
+
+    

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    喵了个咪
+  </title>
+  <meta name="description" content="">
+  
+  <meta name="author" content="">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo">
+        <img src="https://i.loli.net/2019/07/28/5d3d14716fcd891259.png" width="40px">
+      </a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1"><i class="fas fa-search"></i></label>
+          <input type="text" id="search-input" placeholder="标题或内容">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        <!-- 
+        <li class="desktop-only"><a class="navbar-rss" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li>
+         -->
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+$('#search-input').on('keypress', function(e){
+  if (e.keyCode == 13) {
+    handleSearch($(this).val());
+  }
+});
+
+$('.navbar-search .fa-search').on('click', function(){
+  handleSearch($('#search-input').val());
+});
+
+function handleSearch(value) {
+  if (value) {
+    window.location.href = '/search/?w='+ value.trim();
+  }
+}
+
+</script>
+
+<div class="main-container">
+  
+
+<div class="container-lg">
+  
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://i.loli.net/2019/07/01/5d19769719e2f76495.jpg">
+    <div class="user-name">
+      <div class="blog-title">喵了个咪</div>
+      <div class="blog-author"></div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fas fa-map-marker-alt"></i>
+      Bei Jing, China
+    </li>
+    
+    <li>
+      <i class="fa fa-envelope-o"></i>
+      <a href="mailto:summerwang0915@gmail.com">summerwang0915@gmail.com</a>
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="https://ju-da-ren.wang">https://ju-da-ren.wang</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      
+    </div>
+  </div>
+
+  <ul class="user-detail desktop-only">
+    
+    <li>
+      <i class="fas fa-building"></i>
+      知乎
+    </li>
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      Bei Jing, China
+    </li>
+    
+    <li>
+      <i class="far fa-envelope"></i>
+      <a href="mailto:summerwang0915@gmail.com">summerwang0915@gmail.com</a>
+    </li>
+    
+  </ul>
+
+  <div class="social-media desktop-only">
+    <h4>Social Media</h4>
+    <ul>
+      
+      <li class="social-media-item"><a href="https://github.com/summerwang0915" target="_blank"><i class="fab fa-git"></i></a></li>
+      
+        <li class="social-media-item"><a href="https://www.zhihu.com/people/ju-da-ren/activities" target="_blank"><i class="fab fa-zhihu"></i></a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+  <div class="blog-detail">
+    <div class="body-secondary">
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2019/02/18/pre-标签文字换行解决方案/">pre 标签文字换行解决方案</a></h2>
+          <p>
+             大家经常遇到这种情况，当一行文字里包含英文字母或数字时会出现不换行局面，一般用 word-wrap:break-word 强制换行就能解决该问题。 
+ 但有时候后端返回的数据包含 &amp;lt;pre&gt; 标签的时候，用 word-wrap:break-word 换行是没有效果的。 
+ 简单的说就是 &amp;l...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/CSS/">CSS</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/web-前端开发/"><i class="fa fa-folder-open"></i> web 前端开发</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1550460591000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="friend-links">
+      <h2>友情链接</h2>
+      <div>
+        <a href="https://kalasearch.cn/">卡拉搜索</a>
+      </div>
+    </div>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </footer></div>
+    
+  
+
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
+
+
+    

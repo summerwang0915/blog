@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Native ECMAScript modules | 喵了个咪
+  </title>
+  <meta name="description" content="">
+  
+  <meta name="keywords" content="
+  Native Javscript
+  ">
+  
+  <meta name="author" content="">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo">
+        <img src="https://i.loli.net/2019/07/28/5d3d14716fcd891259.png" width="40px">
+      </a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1"><i class="fas fa-search"></i></label>
+          <input type="text" id="search-input" placeholder="标题或内容">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        <!-- 
+        <li class="desktop-only"><a class="navbar-rss" href="/atom.xml" target="_blank"><i class="fas fa-rss"></i></a></li>
+         -->
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+$('#search-input').on('keypress', function(e){
+  if (e.keyCode == 13) {
+    handleSearch($(this).val());
+  }
+});
+
+$('.navbar-search .fa-search').on('click', function(){
+  handleSearch($('#search-input').val());
+});
+
+function handleSearch(value) {
+  if (value) {
+    window.location.href = '/search/?w='+ value.trim();
+  }
+}
+
+</script>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 8 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 5 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 1 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">喵了个咪</a>
+      
+      
+    </h2>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="far fa-user"></i>
+    
+
+    <span class="post-date float-right" title="{{moment(1558275769000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fas fa-pencil-alt"></i>
+      {{moment(1558275769000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Native ECMAScript modules</h1>
+    <p>JS modules 是从 ES6 开始引入的模块系统。由于历史原因，我们借助 babel 等编译工具才能提前使用这些特性。<br>好消息是，越来越多的主流浏览器开始支持 ES modules。 到目前为止，大部分主流浏览器都已经支持了原生 JavaScript modules，这意味着我们可以不用打包编译就可以使用 JavaScript modules。</p>
+<p><img src="https://i.loli.net/2019/07/01/5d19741e73e7030026.png" alt="浏览器" title="浏览器"></p>
+<h3 id="JS-模块化"><a href="#JS-模块化" class="headerlink" title="JS 模块化"></a>JS 模块化</h3><p>在 JS 发展的历程中，诞生过很多模块化方案，例如 CommonJS, AMD, CMD 等，但没有一个统一的规范。ES6 Modules 的出现，将模块语法统一起来。<br>在 JS modules 中，可以使用 export 和 import 导出导入模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// hello.js</span><br><span class="line">export default function() &#123;</span><br><span class="line">  console.log(&apos;hello world!&apos;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import sayHello from &apos;./hello/js&apos;</span><br><span class="line">sayHello()</span><br></pre></td></tr></table></figure>
+<h3 id="JS-modules-和传统-Javascript-的区别"><a href="#JS-modules-和传统-Javascript-的区别" class="headerlink" title="JS modules 和传统 Javascript 的区别"></a>JS modules 和传统 Javascript 的区别</h3><ol>
+<li>默认开启严格模式</li>
+<li>不支持HTML风格的注释 （&lt;!–注释 –&gt;）</li>
+<li>每个模块都有自己的作用域</li>
+<li>import export 仅在 JS modules 中使用，传统脚本不能使用</li>
+</ol>
+<p>如何在浏览器中使用 JS modules 呢？只需在 script 标签上加上 type=”module”, 浏览器就会自动识别 JS modules。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;module&quot; src = &quot;main.js&quot;&gt; &lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// hello.js</span><br><span class="line">export function sayHello() &#123;</span><br><span class="line">  console.log(&apos;hello world!&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// inline</span><br><span class="line">&lt;script type=&quot;module&quot;&gt;</span><br><span class="line">import &#123;sayHello&#125; from &apos;./hello.js</span><br><span class="line">sayHello()</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：.js 后缀不能省略</p>
+<h3 id="import-引入路径支持还不完善"><a href="#import-引入路径支持还不完善" class="headerlink" title="import 引入路径支持还不完善"></a>import 引入路径支持还不完善</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 支持</span><br><span class="line">import &#123;sayHello&#125; from &apos;./hello.js&apos;;</span><br><span class="line">import &#123;sayHello&#125; from &apos;../hello.js&apos;;</span><br><span class="line">import &#123;sayHello&#125; from &apos;/modules/hello.js&apos;;</span><br><span class="line">import &#123;sayHello&#125; from &apos;https://zhihu.com/modules/hello.js&apos;;</span><br><span class="line"></span><br><span class="line">// 不支持</span><br><span class="line">import &#123;sayHello&#125; from &apos;hello.js&apos;;</span><br><span class="line">import &#123;sayHello&#125; from &apos;hello.js&apos;;</span><br><span class="line">import &#123;sayHello&#125; from &apos;modules/hello.js&apos;;</span><br></pre></td></tr></table></figure>
+<h3 id="向后兼容"><a href="#向后兼容" class="headerlink" title="向后兼容"></a>向后兼容</h3><p>nomodule 属性是为兼容不支持 JS modules 的浏览器， 兼容 JS modules 的浏览器不会执行加了 nomodule 属性的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;module&quot; src = &quot;main.js&quot;&gt; &lt;/script&gt;</span><br><span class="line">&lt;script nomodule src=&quot;fallback.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h3><p>对于带有 type=”module” 的 script， 不论是外部脚本还是内联脚本， 浏览器都会异步加载，不会堵塞浏览器渲染。说到异步加载，有两个属性不得不提。defer 和 async。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;main.js&quot; defer&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;main.js&quot; async&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>scrip 标签加了 defer 或 async 属性，脚本就会异步加载。传统 JS 中，这两个属性只用于外部脚本，不能用于内联脚本。 两者的区别是，defer 会等到整个页面渲染结束才会执行，async 是脚本加载完成就执行。</p>
+<p><img src="https://i.loli.net/2019/07/01/5d19741e58c5833232.png" alt="浏览器" title="浏览器"></p>
+<p>JS modules 默认加载行为类似 defer script，也可以使用 async 属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;module&quot; src=&quot;foo.js&quot;&gt; &lt;/script&gt;</span><br><span class="line">&lt;!-- 等同于 --&gt;</span><br><span class="line">&lt;script type=&quot;module&quot; src=&quot;foo.js&quot; defer&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 只要加载完毕，脚本立即执行 --&gt;</span><br><span class="line">&lt;script type=&quot;module&quot; src=&quot;foo.js&quot; async&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h3><p>浏览器可以预加载，甚至可以预解析，预编译模块及其依赖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;modulepreload&quot; href=&quot;main.js&quot;&gt;</span><br><span class="line">&lt;script type=&quot;module&quot; src=&quot;main.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="加载过程中的差异"><a href="#加载过程中的差异" class="headerlink" title="加载过程中的差异"></a>加载过程中的差异</h3><ol>
+<li>JS modules 只执行一次</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- main.js 执行多次 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;module&quot; src=&quot;module.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;module&quot; src=&quot;module.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- module.js 只执行一次--&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>JS modules 及其依赖必须处理跨域问题。<br>传统 JS 中引入其他域的脚本文件是没有跨域问题</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 通过跨域验证，这段脚本才会执行 --&gt;</span><br><span class="line">&lt;script type=&quot;module&quot; src=&quot;https://zhihu.com/modules/hello.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>传统的 script 标签只能在加载外部脚本文件的时候加上 async, 在内联 script 标签加 async 不会生效，但在 JS modules 内联 script 标签上加 async 会生效。</li>
+</ol>
+<h3 id="动态导入"><a href="#动态导入" class="headerlink" title="动态导入"></a>动态导入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;module&quot;&gt;</span><br><span class="line">  (async () =&gt; &#123;</span><br><span class="line">    const sayHello = await import(&apos;./hello.js&apos;);</span><br><span class="line">    sayHello()</span><br><span class="line">  &#125;)();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h3><p>只能使用 import，如果一个模块引入几十个包，不借助构建工具，很难做 tree shaking。</p>
+<p>HTTP2 的 server push 特性，还不能很好的在高度模块化应用使用，web 服务器和浏览器目前也没有针对这种情况进行优化。</p>
+<p>参考：<br><a href="https://jakearchibald.com/2017/es-modules-in-browsers/" target="_blank" rel="noopener">https://jakearchibald.com/2017/es-modules-in-browsers/</a><br><a href="https://hospodarets.com/native-ecmascript-modules-the-first-overview#nodejs-way-to-mark-the-file-as-a-module" target="_blank" rel="noopener">https://hospodarets.com/native-ecmascript-modules-the-first-overview#nodejs-way-to-mark-the-file-as-a-module</a></p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="friend-links">
+      <h2>友情链接</h2>
+      <div>
+        <a href="https://kalasearch.cn/">卡拉搜索</a>
+      </div>
+    </div>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </footer></div>
+    
+  
+
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
+
+
+    
